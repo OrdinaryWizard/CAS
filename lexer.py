@@ -19,8 +19,11 @@ def lexer(input_str):
 
         elif char in number:
             out_char = out_char+char
+        
+        elif char in number and input_str[x-1] == "^":
+            out_char = out_char+char
 
-        elif char == "+" or char == "-" or char == "*" or char == "/" or char == "^" or char == "=":
+        elif char == "+" or char == "-" or char == "*" or char == "/" or char == "=":
             expression.append(out_char)
             out_char = ""
             out_char = out_char+char
@@ -37,6 +40,12 @@ def lexer(input_str):
             out_char = out_char+char
             expression.append(out_char)
             out_char = ""
+        
+        elif char == "^":
+            expression.append(out_char)
+            out_char = ""
+            out_char = out_char+char
+
 
         
           
